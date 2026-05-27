@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100대 명산 헌시 표지 답변 포함 완성본</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/turn.min.js"></script>
+    <style>
+        body {
+            background-color: #222; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: auto; 
+        }
+        #flipbook-container {
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+            /* 렌더링 최적화 힌트 */
+            will-change: transform; 
+        }
+        #flipbook {
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        }
+        #flipbook .page {
+            background-color: white;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            /* 페이지도 가속화 */
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        #controls {
+            position: fixed;
+            bottom: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        #controls button {
+            font-size: 18px;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: white;
+            font-weight: bold;
+        }
+        #controls button:active {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="flipbook-container">
+        <div id="flipbook">
+            <div class="page p1" data-bg="pages/1.jpg"></div>
+            <div class="page p2" data-bg="pages/2.jpg"></div>
+            <div class="page p3" data-bg="pages/3.jpg"></div>
+            <div class="page p4" data-bg="pages/4.jpg"></div>
+            <div class="page p5" data-bg="pages/5.jpg"></div>
+            <div class="page p6" data-bg="pages/6.jpg"></div>
+            <div class="page p7" data-bg="pages/7.jpg"></div>
+            <div class="page p8" data-bg="pages/8.jpg"></div>
+            <div class="page p9" data-bg="pages/9.jpg"></div>
+            <div class="page p10" data-bg="pages/10.jpg"></div>
+            <div class="page p11" data-bg="pages/11.jpg"></div>
+            <div class="page p12" data-bg="pages/12.jpg"></div>
+            <div class="page p13" data-bg="pages/13.jpg"></div>
+            <div class="page p14" data-bg="pages/14.jpg"></div>
+            <div class="page p15" data-bg="pages/15.jpg"></div>
+            <div class="page p16" data-bg="pages/16.jpg"></div>
+            <div class="page p17" data-bg="pages/17.jpg"></div>
+            <div class="page p18" data-bg="pages/18.jpg"></div>
+            <div class="page p19" data-bg="pages/19.jpg"></div>
+            <div class="page p20" data-bg="pages/20.jpg"></div>
+            <div class="page p21" data-bg="pages/21.jpg"></div>
+            <div class="page p22" data-bg="pages/22.jpg"></div>
+            <div class="page p23" data-bg="pages/23.jpg"></div>
+            <div class="page p24" data-bg="pages/24.jpg"></div>
+            <div class="page p25" data-bg="pages/25.jpg"></div>
+            <div class="page p26" data-bg="pages/26.jpg"></div>
+            <div class="page p27" data-bg="pages/27.jpg"></div>
+            <div class="page p28" data-bg="pages/28.jpg"></div>
+            <div class="page p29" data-bg="pages/29.jpg"></div>
+            <div class="page p30" data-bg="pages/30.jpg"></div>
+            <div class="page p31" data-bg="pages/31.jpg"></div>
+            <div class="page p32" data-bg="pages/32.jpg"></div>
+            <div class="page p33" data-bg="pages/33.jpg"></div>
+            <div class="page p34" data-bg="pages/34.jpg"></div>
+            <div class="page p35" data-bg="pages/35.jpg"></div>
+            <div class="page p36" data-bg="pages/36.jpg"></div>
+            <div class="page p37" data-bg="pages/37.jpg"></div>
+            <div class="page p38" data-bg="pages/38.jpg"></div>
+            <div class="page p39" data-bg="pages/39.jpg"></div>
+            <div class="page p40" data-bg="pages/40.jpg"></div>
+            <div class="page p41" data-bg="pages/41.jpg"></div>
+            <div class="page p42" data-bg="pages/42.jpg"></div>
+            <div class="page p43" data-bg="pages/43.jpg"></div>
+            <div class="page p44" data-bg="pages/44.jpg"></div>
+            <div class="page p45" data-bg="pages/45.jpg"></div>
+            <div class="page p46" data-bg="pages/46.jpg"></div>
+            <div class="page p47" data-bg="pages/47.jpg"></div>
+            <div class="page p48" data-bg="pages/48.jpg"></div>
+            <div class="page p49" data-bg="pages/49.jpg"></div>
+            <div class="page p50" data-bg="pages/50.jpg"></div>
+            <div class="page p51" data-bg="pages/51.jpg"></div>
+            <div class="page p52" data-bg="pages/52.jpg"></div>
+            <div class="page p53" data-bg="pages/53.jpg"></div>
+            <div class="page p54" data-bg="pages/54.jpg"></div>
+            <div class="page p55" data-bg="pages/55.jpg"></div>
+            <div class="page p56" data-bg="pages/56.jpg"></div>
+            <div class="page p57" data-bg="pages/57.jpg"></div>
+            <div class="page p58" data-bg="pages/58.jpg"></div>
+            <div class="page p59" data-bg="pages/59.jpg"></div>
+            <div class="page p60" data-bg="pages/60.jpg"></div>
+            <div class="page p61" data-bg="pages/61.jpg"></div>
+            <div class="page p62" data-bg="pages/62.jpg"></div>
+            <div class="page p63" data-bg="pages/63.jpg"></div>
+            <div class="page p64" data-bg="pages/64.jpg"></div>
+            <div class="page p65" data-bg="pages/65.jpg"></div>
+            <div class="page p66" data-bg="pages/66.jpg"></div>
+            <div class="page p67" data-bg="pages/67.jpg"></div>
+            <div class="page p68" data-bg="pages/68.jpg"></div>
+            <div class="page p69" data-bg="pages/69.jpg"></div>
+            <div class="page p70" data-bg="pages/70.jpg"></div>
+            <div class="page p71" data-bg="pages/71.jpg"></div>
+            <div class="page p72" data-bg="pages/72.jpg"></div>
+            <div class="page p73" data-bg="pages/73.jpg"></div>
+            <div class="page p74" data-bg="pages/74.jpg"></div>
+            <div class="page p75" data-bg="pages/75.jpg"></div>
+            <div class="page p76" data-bg="pages/76.jpg"></div>
+            <div class="page p77" data-bg="pages/77.jpg"></div>
+            <div class="page p78" data-bg="pages/78.jpg"></div>
+            <div class="page p79" data-bg="pages/79.jpg"></div>
+            <div class="page p80" data-bg="pages/80.jpg"></div>
+            <div class="page p81" data-bg="pages/81.jpg"></div>
+            <div class="page p82" data-bg="pages/82.jpg"></div>
+            <div class="page p83" data-bg="pages/83.jpg"></div>
+            <div class="page p84" data-bg="pages/84.jpg"></div>
+            <div class="page p85" data-bg="pages/85.jpg"></div>
+            <div class="page p86" data-bg="pages/86.jpg"></div>
+            <div class="page p87" data-bg="pages/87.jpg"></div>
+            <div class="page p88" data-bg="pages/88.jpg"></div>
+            <div class="page p89" data-bg="pages/89.jpg"></div>
+            <div class="page p90" data-bg="pages/90.jpg"></div>
+            <div class="page p91" data-bg="pages/91.jpg"></div>
+            <div class="page p92" data-bg="pages/92.jpg"></div>
+            <div class="page p93" data-bg="pages/93.jpg"></div>
+            <div class="page p94" data-bg="pages/94.jpg"></div>
+            <div class="page p95" data-bg="pages/95.jpg"></div>
+            <div class="page p96" data-bg="pages/96.jpg"></div>
+            <div class="page p97" data-bg="pages/97.jpg"></div>
+            <div class="page p98" data-bg="pages/98.jpg"></div>
+            <div class="page p99" data-bg="pages/99.jpg"></div>
+            <div class="page p100" data-bg="pages/100.jpg"></div>
+            <div class="page p101" data-bg="pages/101.jpg"></div>
+            <div class="page p102" data-bg="pages/102.jpg"></div>
+            <div class="page p103" data-bg="pages/103.jpg"></div>
+            <div class="page p104" data-bg="pages/104.jpg"></div>
+            <div class="page p105" data-bg="pages/105.jpg"></div>
+            <div class="page p106" data-bg="pages/106.jpg"></div>
+            <div class="page p107" data-bg="pages/107.jpg"></div>
+            <div class="page p108" data-bg="pages/108.jpg"></div>
+
+        </div>
+    </div>
+
+    <div id="controls">
+        <button onclick="zoomOut()">➖ 축소</button>
+        <button onclick="zoomIn()">➕ 확대</button>
+    </div>
+
+    <script>
+        let currentZoom = 1;
+
+        function autoFitScreen() {
+            let screenW = window.innerWidth * 0.95; 
+            let screenH = window.innerHeight * 0.85; 
+            let bookW = 1130;
+            let bookH = 800;
+            
+            let scale = Math.min(screenW / bookW, screenH / bookH);
+            if(scale > 1) scale = 1; 
+            
+            currentZoom = scale;
+            applyZoom();
+        }
+
+        function applyZoom() {
+            document.getElementById('flipbook-container').style.transform = `scale(${currentZoom})`;
+        }
+
+        function zoomIn() { currentZoom += 0.2; applyZoom(); }
+        function zoomOut() { if(currentZoom > 0.3) { currentZoom -= 0.2; applyZoom(); } }
+
+        // [최적화 3] 지연 로딩(Lazy Load) 함수: 필요한 페이지만 이미지를 불러옵니다.
+        function loadImages(page) {
+            // 현재 페이지를 기준으로 앞뒤 3장(총 7장)만 이미지를 입힙니다.
+            for (let i = page - 3; i <= page + 3; i++) {
+                let $p = $('#flipbook .p' + i);
+                if ($p.length && $p.attr('data-bg')) {
+                    $p.css('background-image', 'url(' + $p.attr('data-bg') + ')');
+                    $p.removeAttr('data-bg'); // 한 번 불러온 건 다시 안 불러옴
+                }
+            }
+        }
+
+        $(window).ready(function() {
+            $("#flipbook").turn({
+                width: 1130,     
+                height: 800,    
+                autoCenter: true,         
+                gradients: true,          
+                duration: 800,           // 넘기는 속도를 살짝 빠르게 (1000->800)하여 쾌적함 부여
+                acceleration: true,      // 🌟 핵심: 하드웨어 GPU 가속 켜기
+                elevation: 50,           // 🌟 3D 렌더링 부하 감소
+                when: {
+                    turning: function(event, page, view) {
+                        // 책장이 넘어갈 때마다 다음 페이지 이미지를 몰래 불러옵니다.
+                        loadImages(page);
+                    }
+                }
+            });
+
+            // 처음 시작할 때 1~4 페이지만 먼저 로드합니다.
+            loadImages(1);
+            
+            autoFitScreen();
+            $(window).resize(function() { autoFitScreen(); });
+
+            $(window).bind('keydown', function(e) {
+                if (e.keyCode == 37) $('#flipbook').turn('previous');
+                else if (e.keyCode == 39) $('#flipbook').turn('next');
+            });
+
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let isMultiTouch = false;
+
+            document.getElementById('flipbook-container').addEventListener('touchstart', function(e) {
+                if (e.touches.length > 1) {
+                    isMultiTouch = true; 
+                    return;
+                }
+                isMultiTouch = false;
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+            }, {passive: true});
+
+            document.getElementById('flipbook-container').addEventListener('touchend', function(e) {
+                if (isMultiTouch) return; 
+
+                let touchEndX = e.changedTouches[0].screenX;
+                let touchEndY = e.changedTouches[0].screenY;
+                
+                let deltaX = touchEndX - touchStartX;
+                let deltaY = touchEndY - touchStartY;
+
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 100) {
+                    if (deltaX < 0) $('#flipbook').turn('next');     
+                    if (deltaX > 0) $('#flipbook').turn('previous');  
+                }
+            }, {passive: true});
+        });
+    </script>
+</body>
+</html>
